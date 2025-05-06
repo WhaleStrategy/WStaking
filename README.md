@@ -1,4 +1,12 @@
-# ![image](https://github.com/user-attachments/assets/661ffb9d-2853-4639-8d2d-f6c5e12ae987) WStaking – Intelligent Crypto Staking with Optimized Yield
+<p align="left">
+  <img src="./wstakinglogonobackground.png" alt="WStaking Logo" width="60" align="left" style="margin-right: 15px;"/>
+</p>
+
+<h1 style="margin-left: 75px; margin-bottom: 50px;">
+  WStaking – Intelligent Crypto Staking with Optimized Yield
+</h1>
+
+
 
 ![WStaking Airdrop](https://github.com/user-attachments/assets/41941342-2a6d-422f-8a51-13ef3f415ba4)
 
