@@ -1,3 +1,4 @@
+
 <p align="left"> 
   <img src="./wstakinglogonobackground.png" alt="WStaking Logo" width="60" align="left" style="margin-right: 15px;"/>
 </p>
@@ -7,6 +8,7 @@
 </h1>
 
 ---
+![Thumbnaill](https://github.com/user-attachments/assets/a4fb40bc-0e29-4d2d-9f28-23c6d264ab96)
 
 *Smart staking with optimized returns – built for long-term growth.* 🚀
 
