@@ -6,8 +6,6 @@
   WStaking – Intelligent Crypto Staking with Optimized Yield
 </h1>
 
-
-
 ![WStaking Airdrop](https://github.com/user-attachments/assets/41941342-2a6d-422f-8a51-13ef3f415ba4)
 
 
@@ -99,3 +97,5 @@ Stay connected & follow our progress:
 
 > 💡 *WStaking is not just staking—it's your strategic edge in the crypto economy.*  
 > — Powered by WhaleStrategy & AI
+
+> © 2025 Whale Venture. All Rights Reserved
