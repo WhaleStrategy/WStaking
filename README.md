@@ -1,4 +1,3 @@
-
 <p align="left"> 
   <img src="./wstakinglogonobackground.png" alt="WStaking Logo" width="60" align="left" style="margin-right: 15px;"/>
 </p>
