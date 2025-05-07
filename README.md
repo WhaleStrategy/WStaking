@@ -124,7 +124,21 @@ Read the full whitepaper 👉 [`WStaking Staking Pool Whitepaper`](./WStaking%20
 
 ---
 
+## 📈 Trading Strategy Transparency
 
+At WStaking, we believe in building trust through full transparency.
+
+Our staking rewards aren’t just promises – they are powered by **real, backtested, and publicly available trading strategies** developed by Whale Strategy.
+
+We invite you to explore our open-source strategy repository on GitHub:
+
+🔍 **[WhaleStrategy/Strategies](https://github.com/WhaleStrategy/Strategies)**
+
+Each strategy is rigorously tested and built to support the performance of our staking pool.
+
+> 📘 *You stake with confidence, knowing that behind every yield is a strategy you can verify.*
+
+---
 
 ## 📬 Contact Us
 
