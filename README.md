@@ -11,7 +11,7 @@
 
 *Smart staking with optimized returns – built for long-term growth.* 🚀
 
-WStaking is **Whale Strategy's trusted USDT staking platform**, offering dynamic APRs based on **your selected lock-in duration**. Whether you commit for 1 month or 12, WStaking gives you a secure and flexible way to grow your holdings through smart contract-based staking powered by advanced trading strategies.
+**WStaking** is a staking platform, offering dynamic APRs based on your selected lock-in duration. Whether you commit for 1 month or 12, **WStaking** gives you a secure and flexible way to grow your holdings through smart contract-based staking powered by advanced trading strategies.
 
 ---
 
@@ -37,16 +37,41 @@ WStaking is **Whale Strategy's trusted USDT staking platform**, offering dynamic
 
 ## 🔑 Staking Duration & APR Calculation
 
-| Duration   | APR Range   |
-|------------|-------------|
-| 1 Month    | 10%         |
-| 3 Months   | 12% – 15%   |
-| 6 Months   | 15% – 24%   |
-| 12 Months  | 24% – 36%   |
+<div align="center">
 
-- Stakes of **10 USDT or more** qualify for at least **10% APR**
-- APR increases progressively with your stake amount
-- Maximum APR is achieved with **10,000 USDT or more**
+<table>
+  <thead>
+    <tr>
+      <th><strong>📅 Duration</strong></th>
+      <th><strong>📈 APR Range</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1 Month</td>
+      <td><strong>🔹 10%</strong></td>
+    </tr>
+    <tr>
+      <td>3 Months</td>
+      <td><strong>🔸 12% – 15%</strong></td>
+    </tr>
+    <tr>
+      <td>6 Months</td>
+      <td><strong>🟠 15% – 24%</strong></td>
+    </tr>
+    <tr>
+      <td>12 Months</td>
+      <td><strong>🟢 24% – 36%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+- 💡 Stakes of **10 USDT or more** qualify for at least **10% APR**  
+- 📊 APR **increases progressively** with your stake amount  
+- 🏆 Maximum APR is unlocked at **10,000 USDT or more**
+
 
 ---
 
