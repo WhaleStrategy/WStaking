@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WStaking – Intelligent Crypto Staking</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="wstakinglogonobackground.png" />
+  <link rel="icon" href="wstakinglogonobackground.png">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #0a0a0a;
       color: #f0f0f0;
-      line-height: 1.6;
+      line-height: 1.7;
       padding: 30px;
       max-width: 900px;
       margin: auto;
     }
     img {
       max-width: 100%;
+    }
+    a {
+      color: #00ffff;
     }
     table {
       width: 100%;
@@ -37,273 +40,133 @@
       background: #333;
       margin: 40px 0;
     }
-
-    .popup-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      background: #00ffff;
-      color: #000;
-      padding: 14px 22px;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+    .title-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
-
-    .popup-button:hover {
-      background: #00dddd;
+    .title-logo img {
+      width: 60px;
     }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.85);
-    }
-
-    .modal-content {
-      background-color: #1a1a1a;
-      margin: 5% auto;
-      padding: 0;
-      border: 1px solid #444;
-      width: 90%;
-      max-width: 850px;
-      height: 600px;
-      border-radius: 10px;
-      position: relative;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
-    }
-
-    .modal-content iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .close {
-      color: #fff;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close:hover {
-      color: #ff4444;
-    }
-
-    a {
-      color: #00ffff;
+    .title-logo h1 {
+      margin: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Button -->
-  <button class="popup-button" onclick="document.getElementById('aprModal').style.display='block'">
-    APR Calculator
-  </button>
-
-  <!-- Modal -->
-  <div id="aprModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('aprModal').style.display='none'">&times;</span>
-      <iframe src="https://whalestrategy.github.io/WStakingAPR/"></iframe>
-    </div>
-  </div>
-  <p align="left"> 
-  <img src="./wstakinglogonobackground.png" alt="WStaking Logo" width="60" align="left" style="margin-right: 15px;"/>
-  </p>
-  
-  <h1 style="margin-left: 75px; margin-bottom: 50px;">
-    WStaking – Intelligent Crypto Staking with Optimized Yield
-  </h1>
-
----
-
-![Thumbnaill](https://github.com/user-attachments/assets/a4fb40bc-0e29-4d2d-9f28-23c6d264ab96)
-
-*Smart staking with optimized returns – built for long-term growth.* 🚀
-
-**WStaking** is a staking platform, offering dynamic APRs based on your selected lock-in duration. Whether you commit for 1 month or 12, **WStaking** gives you a secure and flexible way to grow your holdings through smart contract-based staking powered by advanced trading strategies.
-
----
-
-## 🚀 How It Works
-
-1. **Connect Your Wallet:** Visit **[wstaking.net](https://wstaking.net)** and connect one of the supported wallets (MetaMask, OKX, Trust, Coinbase, TokenPocket). No downloads or sign-ups required – just connect your wallet to begin.
-2. **Stake USDT:** Choose the amount of USDT you want to stake. Choose your staking duration. Your USDT will be deployed in our smart contract strategy to start earning rewards immediately.
-3. **Earn & Claim Rewards:** Watch your balance grow with **high-yield APR rewards** (up to 36% APR) in real time. Rewards accumulate by the minute; you can claim them whenever you like, directly to your wallet. Enjoy passive income with full flexibility!
-
-**👉 Ready to dive in?** [**Start staking now on WStaking.net**](https://wstaking.net) and put your crypto to work for you! 💸
-
----
-
-## 📚 Full Feature Breakdown
-
-* 🔒 **Audited Smart Contracts**
-* 💹 **APR up to 36%**, depending on duration + stake amount
-* 🤖 **AI-Driven Yield Optimization** via OKX-based trading models
-* 💼 **Multi-Wallet Support**: MetaMask, OKX, Coinbase, Trust, TokenPocket
-* 🎁 **Ongoing Campaigns**: Giveaways, Airdrops, & Loyalty Rewards
-
----
-
-## 🔑 Staking Duration & APR Calculation
-
-<div align="center">
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>📅 Duration</strong></th>
-      <th><strong>📈 APR Range</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1 Month</td>
-      <td><strong>🔹 10%</strong></td>
-    </tr>
-    <tr>
-      <td>3 Months</td>
-      <td><strong>🔸 12% – 15%</strong></td>
-    </tr>
-    <tr>
-      <td>6 Months</td>
-      <td><strong>🟠 15% – 24%</strong></td>
-    </tr>
-    <tr>
-      <td>12 Months</td>
-      <td><strong>🟢 24% – 36%</strong></td>
-    </tr>
-  </tbody>
-</table>
-
+<div class="title-logo">
+  <img src="./wstakinglogonobackground.png" alt="WStaking Logo">
+  <h1>WStaking – Intelligent Crypto Staking with Optimized Yield</h1>
 </div>
 
-* 💡 Stakes of **10 USDT or more** qualify for at least **10% APR**
-* 📊 APR **increases progressively** with your stake amount
-* 🏆 Maximum APR is unlocked at **10,000 USDT or more**
+<hr>
 
----
+<p><img src="https://github.com/user-attachments/assets/a4fb40bc-0e29-4d2d-9f28-23c6d264ab96" alt="Thumbnail"></p>
 
-## ➕ Additional Staking Rules
+<p><em>Smart staking with optimized returns – built for long-term growth.</em> 🚀</p>
 
-* **Different durations cannot be combined**
-* **Same durations can be added**, and the **entire stake period resets**
-* This ensures fair APR calculation and consistent reward logic
+<p><strong>WStaking</strong> is a staking platform, offering dynamic APRs based on your selected lock-in duration. Whether you commit for 1 month or 12, <strong>WStaking</strong> gives you a secure and flexible way to grow your holdings through smart contract-based staking powered by advanced trading strategies.</p>
 
----
+<hr>
+<h2>🚀 How It Works</h2>
+<ol>
+  <li><strong>Connect Your Wallet:</strong> Visit <a href="https://wstaking.net" target="_blank">wstaking.net</a> and connect one of the supported wallets (MetaMask, OKX, Trust, Coinbase, TokenPocket). No downloads or sign-ups required – just connect your wallet to begin.</li>
+  <li><strong>Stake USDT:</strong> Choose the amount of USDT you want to stake. Choose your staking duration. Your USDT will be deployed in our smart contract strategy to start earning rewards immediately.</li>
+  <li><strong>Earn & Claim Rewards:</strong> Watch your balance grow with <strong>high-yield APR rewards</strong> (up to 36% APR) in real time. Rewards accumulate by the minute; you can claim them whenever you like, directly to your wallet.</li>
+</ol>
+<p><strong>👉 Ready to dive in?</strong> <a href="https://wstaking.net" target="_blank"><strong>Start staking now on WStaking.net</strong></a> and put your crypto to work for you! 💸</p>
 
-## 🔁 Automatic Renewal
+<hr>
+<h2>📚 Full Feature Breakdown</h2>
+<ul>
+  <li>🔒 <strong>Audited Smart Contracts</strong></li>
+  <li>💹 <strong>APR up to 36%</strong>, depending on duration + stake amount</li>
+  <li>🤖 <strong>AI-Driven Yield Optimization</strong> via OKX-based trading models</li>
+  <li>💼 <strong>Multi-Wallet Support</strong>: MetaMask, OKX, Coinbase, Trust, TokenPocket</li>
+  <li>🎁 <strong>Ongoing Campaigns</strong>: Giveaways, Airdrops, & Loyalty Rewards</li>
+</ul>
 
-When your selected staking duration ends:
+<hr>
+<h2>🔑 Staking Duration & APR Calculation</h2>
+<table>
+  <thead>
+    <tr><th>📅 Duration</th><th>📈 APR Range</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1 Month</td><td>🔹 10%</td></tr>
+    <tr><td>3 Months</td><td>🔸 12% – 15%</td></tr>
+    <tr><td>6 Months</td><td>🟠 15% – 24%</td></tr>
+    <tr><td>12 Months</td><td>🟢 24% – 36%</td></tr>
+  </tbody>
+</table>
+<ul>
+  <li>💡 Stakes of <strong>10 USDT or more</strong> qualify for at least <strong>10% APR</strong></li>
+  <li>📊 APR <strong>increases progressively</strong> with your stake amount</li>
+  <li>🏆 Maximum APR is unlocked at <strong>10,000 USDT or more</strong></li>
+</ul>
 
-* Your stake **automatically renews** for the same duration
-* Rewards will **recalculate and resume** during the renewed period
-* **You can unstake anytime** after renewal **without penalty**
-* Note: **Promotional APR** applies only during the original locked period
+<hr>
+<h2>➕ Additional Staking Rules</h2>
+<ul>
+  <li><strong>Different durations cannot be combined</strong></li>
+  <li><strong>Same durations can be added</strong>, and the <strong>entire stake period resets</strong></li>
+</ul>
 
----
+<hr>
+<h2>🔁 Automatic Renewal</h2>
+<ul>
+  <li>Your stake <strong>automatically renews</strong> for the same duration</li>
+  <li>Rewards will <strong>recalculate and resume</strong> during the renewed period</li>
+  <li><strong>You can unstake anytime</strong> after renewal <strong>without penalty</strong></li>
+  <li><strong>Promotional APR</strong> applies only during the original locked period</li>
+</ul>
 
-## 🚫 Early Unstake & Withdrawal Policy
+<hr>
+<h2>🚫 Early Unstake & Withdrawal Policy</h2>
+<ul>
+  <li><strong>10% penalty</strong> for unstaking before end of duration</li>
+  <li><strong>7–10 days</strong> for unstake withdrawals to reach wallet</li>
+</ul>
 
-* **Unstaking before the end of the duration** incurs a **10% penalty**
-* **Unstake withdrawals** take **7–10 days** to return to your wallet
-* During this time, assets remain in trading execution – **to avoid holding loss**, avoid unnecessary unstaking
+<hr>
+<h2>🎉 1000 USDT Community Airdrop Event</h2>
+<p><img src="https://github.com/user-attachments/assets/b7133e54-5509-48bd-8026-d15d93ba38ac" alt="Airdrop"></p>
+<p><em>To thank our community, WStaking recently hosted a <strong>1000 USDT prize pool airdrop event</strong> for active users!</em></p>
 
----
+<hr>
+<h2>🤝 Community & Partnerships</h2>
+<p>Follow us on <a href="https://www.instagram.com/wstaking_net/">Instagram @wstaking_net</a> for the latest announcements, tutorials, and giveaways.</p>
 
-### 🎉 1000 USDT Community Airdrop Event
+<hr>
+<h2>🌐 Deployment Roadmap</h2>
+<h3>✅ Step 1: Already Live</h3>
+<ul><li>X Layer</li><li>BNB Chain (Binance Smart Chain)</li></ul>
+<h3>🚧 Step 2: Coming Soon</h3>
+<ul><li>Ethereum Mainnet (ERC20)</li><li>Arbitrum (ARB)</li></ul>
+<h3>🔜 Step 3: In Pipeline</h3>
+<ul><li>Optimism (OP)</li><li>Polygon (MATIC)</li></ul>
 
-![WStaking Airdrop](https://github.com/user-attachments/assets/b7133e54-5509-48bd-8026-d15d93ba38ac)
+<hr>
+<h2>📚 Whitepaper</h2>
+<p>Read the full whitepaper 👉 <a href="./WStaking%20Staking%20Pool%20Whitepaper">WStaking Staking Pool Whitepaper</a></p>
 
-*To thank our community, WStaking recently hosted a **1000 USDT prize pool airdrop event** for active users!*
-Stakers had the chance to **win a share of 1000 USDT** simply by staking on the platform – *the more you staked, the higher your chances of winning*.
-This **giveaway campaign** reflects our commitment to rewarding users and building an engaged community.
-*Missed out on this round?* Don’t worry – more **staking campaigns and bonus events** are on the way as WStaking continues to grow.
-Make sure to follow our updates so you can participate in the next big reward opportunity!
+<hr>
+<h2>📈 Trading Strategy Transparency</h2>
+<p>Our rewards are powered by <strong>real, backtested, and publicly available strategies</strong> built by Whale Strategy.</p>
+<p>Explore here: <a href="https://github.com/WhaleStrategy/Strategies">WhaleStrategy/Strategies</a></p>
 
----
+<hr>
+<h2>📬 Contact Us</h2>
+<ul>
+  <li><a href="mailto:service@wstaking.net">📧 Email: service@wstaking.net</a></li>
+  <li><a href="https://www.facebook.com/WStaking/">📘 Facebook: WStaking</a></li>
+  <li><a href="https://www.instagram.com/wstaking_net/">📷 Instagram: @wstaking_net</a></li>
+</ul>
 
-### 🤝 Community & Partnerships
-
-WStaking isn’t just a platform – it’s a growing community. We regularly engage with our users on **social media** and through community events.
-Follow us on **[Instagram @wstaking\_net](https://www.instagram.com/wstaking_net/)** for the latest announcements, tutorials, and giveaways.
-
-We also run a **KOL (Key Opinion Leader) and affiliate program**, partnering with influencers and community leaders to spread the word.
-If you’re a content creator or community builder with a passion for crypto, get in touch with us – **let’s grow together** and help more people discover WStaking’s benefits! 💼📢
-
----
-
-## 🌐 Deployment Roadmap
-
-WStaking is expanding across major blockchain ecosystems to offer you more flexibility, lower fees, and broader access.
-
-### ✅ Step 1: Already Live
-
-* **X Layer**
-* **BNB Chain (Binance Smart Chain)**
-
-### 🚧 Step 2: Coming Soon
-
-* **Ethereum Mainnet (ERC20)**
-* **Arbitrum (ARB)**
-
-### 🔜 Step 3: In Pipeline
-
-* **Optimism (OP)**
-* **Polygon (MATIC)**
-
-We are actively testing and preparing contracts on these networks to ensure a secure and smooth user experience. Stay tuned for announcements as each phase goes live!
-"""
-
-## 📚 Whitepaper
-
-Read the full whitepaper 👉 [`WStaking Staking Pool Whitepaper`](./WStaking%20Staking%20Pool%20Whitepaper)
-
----
-
-## 📈 Trading Strategy Transparency
-
-At WStaking, we believe in building trust through full transparency.
-
-Our staking rewards aren’t just promises – they are powered by **real, backtested, and publicly available trading strategies** developed by Whale Strategy.
-
-We invite you to explore our open-source strategy repository on GitHub:
-
-🔍 **[WhaleStrategy/Strategies](https://github.com/WhaleStrategy/Strategies)**
-
-Each strategy is rigorously tested and built to support the performance of our staking pool.
-
-> 📘 *You stake with confidence, knowing that behind every yield is a strategy you can verify.*
-
----
-
-## 📬 Contact Us
-
-* [![Gmail](https://img.shields.io/badge/Email-service@wstaking.net-D14836?style=flat\&logo=gmail\&logoColor=white)](mailto:service@wstaking.net)
-* [![Facebook](https://img.shields.io/badge/Facebook-WStaking-1877F2?style=flat\&logo=facebook\&logoColor=white)](https://www.facebook.com/WStaking/)
-* [![Instagram](https://img.shields.io/badge/Instagram-@wstaking_net-E4405F?style=flat\&logo=instagram\&logoColor=white)](https://www.instagram.com/wstaking_net/)
-
----
-
-> 💡 *With WStaking, your time earns more. Commit confidently and let your USDT grow.*
-> — Powered by WhaleStrategy
-
-> © 2025 Whale Venture. All Rights Reserved
+<hr>
+<p><strong>💡 With WStaking, your time earns more. Commit confidently and let your USDT grow.<br>— Powered by WhaleStrategy</strong></p>
+<p>© 2025 Whale Venture. All Rights Reserved</p>
 
 </body>
 </html>
