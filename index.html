@@ -51,6 +51,91 @@
     .title-logo h1 {
       margin: 0;
     }
+    /* Calculator Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .modal-content {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+      animation: popIn 0.3s ease;
+    }
+
+    .close {
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .close:hover {
+      color: #ff4444;
+    }
+
+    .modal-content label, .modal-content input, .modal-content select {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .modal-content input, .modal-content select {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #2a2a2a;
+      color: #fff;
+    }
+
+    .result {
+      background: #121212;
+      border-left: 4px solid #00ffff;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .calc-button {
+      background: #00ffff;
+      border: none;
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .calc-button:hover {
+      background: #00dddd;
+    }
   </style>
 </head>
 <body>
@@ -105,6 +190,90 @@
   <li>📊 APR <strong>increases progressively</strong> with your stake amount</li>
   <li>🏆 Maximum APR is unlocked at <strong>10,000 USDT or more</strong></li>
 </ul>
+  <!-- Calculator Button -->
+<button class="calc-button" onclick="openModal()">📟 Open APR Calculator</button>
+
+<!-- Modal -->
+<div id="aprModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <label for="amount">USDT Amount:</label>
+    <input type="number" id="amount" placeholder="Enter USDT amount" />
+
+    <label for="duration">Duration:</label>
+    <select id="duration">
+      <option value="1 Month">1 Month</option>
+      <option value="3 Months">3 Months</option>
+      <option value="6 Months">6 Months</option>
+      <option value="12 Months">12 Months</option>
+    </select>
+
+    <div class="result" id="resultBox" style="display:none">
+      <p><strong>Estimated APR:</strong> <span id="apr"></span>%</p>
+      <p><strong>Estimated Rewards:</strong> <span id="reward"></span> USDT</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("aprModal").style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("aprModal").style.display = "none";
+}
+document.getElementById("amount").addEventListener("input", calculate);
+document.getElementById("duration").addEventListener("change", calculate);
+
+function calculate() {
+  const amount = parseFloat(document.getElementById("amount").value);
+  const duration = document.getElementById("duration").value;
+  if (!amount || !duration) return;
+
+  const durations = {
+    "1 Month": 43800,
+    "3 Months": 131400,
+    "6 Months": 262800,
+    "12 Months": 525600
+  };
+  const aprRanges = {
+    "1 Month": [10, 10],
+    "3 Months": [12, 15],
+    "6 Months": [15, 24],
+    "12 Months": [24, 36]
+  };
+
+  const SHIFT = 1e18;
+  const ONE_YEAR_MINUTES = 525600;
+  const THRESHOLD = 10000000;
+  const MINIMUM = 10 * 1e6;
+
+  const amt = Math.floor(amount * 1e6);
+  const minutes = durations[duration];
+  const [minAPR, maxAPR] = aprRanges[duration];
+  let effectiveAPR;
+  if (minAPR === maxAPR) {
+    effectiveAPR = maxAPR * 1000;
+  } else {
+    const range = THRESHOLD - MINIMUM;
+    const delta = maxAPR - minAPR;
+    const stake = Math.max(amt - MINIMUM, 0);
+    effectiveAPR = (minAPR * 1000) + Math.floor((stake * delta * 1000) / range);
+  }
+
+  const aprFraction = Math.floor((effectiveAPR * SHIFT) / (100 * 1000));
+  const timeFraction = Math.floor((minutes * SHIFT) / ONE_YEAR_MINUTES);
+  const numerator = BigInt(amt) * BigInt(aprFraction) * BigInt(timeFraction);
+  const denominator = BigInt(SHIFT) * BigInt(SHIFT);
+  let reward = Number(numerator / denominator);
+  if (numerator % denominator > 0n) reward += 1;
+
+  document.getElementById("apr").textContent = (effectiveAPR / 1000).toFixed(3);
+  document.getElementById("reward").textContent = (reward / 1e6).toFixed(6);
+  document.getElementById("resultBox").style.display = "block";
+}
+</script>
+
 
 <hr>
 <h2>➕ Additional Staking Rules</h2>
@@ -165,7 +334,7 @@
 </ul>
 
 <hr>
-<p><strong>💡 With WStaking, your time earns more. Commit confidently and let your USDT grow.<br>— Powered by WhaleStrategy</strong></p>
+<p><strong>💡 With WStaking, your time earns more. Commit confidently and let your USDT grow.<br>— Powered by Whale Venture</strong></p>
 <p>© 2025 Whale Venture. All Rights Reserved</p>
 
 </body>
