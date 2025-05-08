@@ -72,7 +72,6 @@
 - 📊 APR **increases progressively** with your stake amount  
 - 🏆 Maximum APR is unlocked at **10,000 USDT or more**
 
-
 ---
 
 ## ➕ Additional Staking Rules
