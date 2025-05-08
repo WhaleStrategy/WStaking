@@ -1,8 +1,130 @@
-from markdown2 import markdown
-from bs4 import BeautifulSoup
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WStaking – Intelligent Crypto Staking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="wstakinglogonobackground.png" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a0a0a;
+      color: #f0f0f0;
+      line-height: 1.6;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    img {
+      max-width: 100%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #444;
+      text-align: center;
+    }
+    th {
+      background-color: #111;
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background: #333;
+      margin: 40px 0;
+    }
 
-# Full original README.md content (as received from the user)
-readme_md = """
+    .popup-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: #00ffff;
+      color: #000;
+      padding: 14px 22px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+    }
+
+    .popup-button:hover {
+      background: #00dddd;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 5% auto;
+      padding: 0;
+      border: 1px solid #444;
+      width: 90%;
+      max-width: 850px;
+      height: 600px;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .close {
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ff4444;
+    }
+
+    a {
+      color: #00ffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Button -->
+  <button class="popup-button" onclick="document.getElementById('aprModal').style.display='block'">
+    APR Calculator
+  </button>
+
+  <!-- Modal -->
+  <div id="aprModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('aprModal').style.display='none'">&times;</span>
+      <iframe src="https://whalestrategy.github.io/WStakingAPR/"></iframe>
+    </div>
+  </div>
+
+ here is my current readme.md content, and i need all of them as it is, no changes:
+
 <p align="left"> 
   <img src="./wstakinglogonobackground.png" alt="WStaking Logo" width="60" align="left" style="margin-right: 15px;"/>
 </p>
@@ -122,7 +244,7 @@ Make sure to follow our updates so you can participate in the next big reward op
 ### 🤝 Community & Partnerships
 
 WStaking isn’t just a platform – it’s a growing community. We regularly engage with our users on **social media** and through community events.
-Follow us on **[Instagram @wstaking_net](https://www.instagram.com/wstaking_net/)** for the latest announcements, tutorials, and giveaways.
+Follow us on **[Instagram @wstaking\_net](https://www.instagram.com/wstaking_net/)** for the latest announcements, tutorials, and giveaways.
 
 We also run a **KOL (Key Opinion Leader) and affiliate program**, partnering with influencers and community leaders to spread the word.
 If you’re a content creator or community builder with a passion for crypto, get in touch with us – **let’s grow together** and help more people discover WStaking’s benefits! 💼📢
@@ -149,6 +271,7 @@ WStaking is expanding across major blockchain ecosystems to offer you more flexi
 * **Polygon (MATIC)**
 
 We are actively testing and preparing contracts on these networks to ensure a secure and smooth user experience. Stay tuned for announcements as each phase goes live!
+"""
 
 ## 📚 Whitepaper
 
@@ -174,9 +297,9 @@ Each strategy is rigorously tested and built to support the performance of our s
 
 ## 📬 Contact Us
 
-* [![Gmail](https://img.shields.io/badge/Email-service@wstaking.net-D14836?style=flat&logo=gmail&logoColor=white)](mailto:service@wstaking.net)
-* [![Facebook](https://img.shields.io/badge/Facebook-WStaking-1877F2?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/WStaking/)
-* [![Instagram](https://img.shields.io/badge/Instagram-@wstaking_net-E4405F?style=flat&logo=instagram&logoColor=white)](https://www.instagram.com/wstaking_net/)
+* [![Gmail](https://img.shields.io/badge/Email-service@wstaking.net-D14836?style=flat\&logo=gmail\&logoColor=white)](mailto:service@wstaking.net)
+* [![Facebook](https://img.shields.io/badge/Facebook-WStaking-1877F2?style=flat\&logo=facebook\&logoColor=white)](https://www.facebook.com/WStaking/)
+* [![Instagram](https://img.shields.io/badge/Instagram-@wstaking_net-E4405F?style=flat\&logo=instagram\&logoColor=white)](https://www.instagram.com/wstaking_net/)
 
 ---
 
@@ -184,123 +307,6 @@ Each strategy is rigorously tested and built to support the performance of our s
 > — Powered by WhaleStrategy
 
 > © 2025 Whale Venture. All Rights Reserved
-"""
 
-# Convert to HTML
-readme_html = markdown(readme_md, extras=["tables", "fenced-code-blocks", "cuddled-lists"])
-
-# Wrap in full HTML with popup calculator button and modal
-final_html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>WStaking README + APR Calculator</title>
-  <style>
-    body {{
-      background-color: #0a0a0a;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', sans-serif;
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-    }}
-    a {{ color: #00ffff; }}
-    hr {{ border-color: #333; margin: 30px 0; }}
-    table {{
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }}
-    table, th, td {{
-      border: 1px solid #00ffff;
-    }}
-    th, td {{
-      padding: 12px;
-      text-align: center;
-    }}
-    h1, h2, h3 {{
-      color: #00ffff;
-    }}
-    .apr-button {{
-      background-color: #00ffff;
-      color: #000;
-      padding: 12px 24px;
-      border: none;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s ease;
-      margin: 20px 0;
-    }}
-    .apr-button:hover {{
-      background-color: #00dddd;
-    }}
-    .modal {{
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding-top: 60px;
-    }}
-    .modal-content {{
-      background-color: #1a1a1a;
-      margin: auto;
-      padding: 0;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 850px;
-      height: 600px;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
-      position: relative;
-    }}
-    .modal-content iframe {{
-      width: 100%;
-      height: 100%;
-      border: none;
-    }}
-    .close {{
-      color: #fff;
-      position: absolute;
-      top: 12px;
-      right: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }}
-    .close:hover {{
-      color: #ff4444;
-    }}
-  </style>
-</head>
-<body>
-
-  <button class="apr-button" onclick="document.getElementById('aprModal').style.display='block'">📊 APR Calculator</button>
-
-  <div id="aprModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('aprModal').style.display='none'">&times;</span>
-      <iframe src="https://whalestrategy.github.io/WStakingAPR/" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  {readme_html}
-
-  <script>
-    window.onclick = function(event) {{
-      const modal = document.getElementById("aprModal");
-      if (event.target === modal) {{
-        modal.style.display = "none";
-      }}
-    }};
-  </script>
 </body>
 </html>
-"""
-
-from pathlib import Path
-output_path = "/mnt/data/wstaking_full_with_calculator.html"
-Path(output_path).write_text(final_html)
-output_path
