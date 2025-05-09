@@ -67,10 +67,12 @@
       border-radius: 8px;
       cursor: pointer;
       box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+      transition: transform 0.2s ease;
     }
 
     .popup-button:hover {
       background: #00dddd;
+      transform: scale(1.05);
     }
     
     /* Calculator Modal Styles */
@@ -89,12 +91,15 @@
 
     .modal-content {
       background-color: #1a1a1a;
+      margin: 5% auto;
       padding: 20px;
       border-radius: 12px;
       width: 90%;
       max-width: 500px;
+      height: 600px;
+      position: relative;
       box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-      animation: popIn 0.3s ease;
+      animation: popIn 0.4s ease;
     }
 
     .modal-content iframe {
@@ -104,6 +109,8 @@
     }
 
     .close {
+      position: absolute;
+      top: 10px;
       float: right;
       font-size: 28px;
       font-weight: bold;
@@ -147,23 +154,7 @@
       0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
-
-    .calc-button {
-      background: #00ffff;
-      border: none;
-      color: #000;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-      margin-top: 10px;
-    }
-
-    .calc-button:hover {
-      background: #00dddd;
-    }
+    
   </style>
 </head>
 <body>
@@ -229,62 +220,20 @@
 </ul>
 
 <script>
-function openModal() {
-  document.getElementById("aprModal").style.display = "flex";
-}
-function closeModal() {
-  document.getElementById("aprModal").style.display = "none";
-}
-document.getElementById("amount").addEventListener("input", calculate);
-document.getElementById("duration").addEventListener("change", calculate);
-
-function calculate() {
-  const amount = parseFloat(document.getElementById("amount").value);
-  const duration = document.getElementById("duration").value;
-  if (!amount || !duration) return;
-
-  const durations = {
-    "1 Month": 43800,
-    "3 Months": 131400,
-    "6 Months": 262800,
-    "12 Months": 525600
-  };
-  const aprRanges = {
-    "1 Month": [10, 10],
-    "3 Months": [12, 15],
-    "6 Months": [15, 24],
-    "12 Months": [24, 36]
-  };
-
-  const SHIFT = 1e18;
-  const ONE_YEAR_MINUTES = 525600;
-  const THRESHOLD = 10000000;
-  const MINIMUM = 10 * 1e6;
-
-  const amt = Math.floor(amount * 1e6);
-  const minutes = durations[duration];
-  const [minAPR, maxAPR] = aprRanges[duration];
-  let effectiveAPR;
-  if (minAPR === maxAPR) {
-    effectiveAPR = maxAPR * 1000;
-  } else {
-    const range = THRESHOLD - MINIMUM;
-    const delta = maxAPR - minAPR;
-    const stake = Math.max(amt - MINIMUM, 0);
-    effectiveAPR = (minAPR * 1000) + Math.floor((stake * delta * 1000) / range);
+  
+  function openAPRModal() {
+    document.getElementById("aprModal").style.display = "block";
   }
 
-  const aprFraction = Math.floor((effectiveAPR * SHIFT) / (100 * 1000));
-  const timeFraction = Math.floor((minutes * SHIFT) / ONE_YEAR_MINUTES);
-  const numerator = BigInt(amt) * BigInt(aprFraction) * BigInt(timeFraction);
-  const denominator = BigInt(SHIFT) * BigInt(SHIFT);
-  let reward = Number(numerator / denominator);
-  if (numerator % denominator > 0n) reward += 1;
+  function closeAPRModal() {
+    document.getElementById("aprModal").style.display = "none";
+  }
 
-  document.getElementById("apr").textContent = (effectiveAPR / 1000).toFixed(3);
-  document.getElementById("reward").textContent = (reward / 1e6).toFixed(6);
-  document.getElementById("resultBox").style.display = "block";
-}
+  window.onclick = function(event) {
+    const modal = document.getElementById("aprModal");
+    if (event.target === modal) {
+      closeAPRModal();
+    }
 </script>
 
 
