@@ -251,43 +251,42 @@
 </ul>
 
 <script>
-    const modal = document.getElementById("aprModal");
-    const iframe = document.getElementById("aprFrame");
-    const modalContent = document.getElementById("modalContent");
+  const modal = document.getElementById("aprModal");
+  const iframe = document.getElementById("aprFrame");
 
-    function openModal() {
-      iframe.src = iframe.dataset.src;
-      modal.classList.remove("hide");
-      modalContent.classList.remove("animate-out");
-      modal.style.display = "flex";
-      void modal.offsetWidth; // force reflow
-      modal.classList.add("show");
-      modalContent.classList.add("animate-in");
+  function openModal() {
+    iframe.src = iframe.dataset.src;
+    modal.classList.add("show");
+    modal.classList.remove("hide");
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+    setTimeout(() => {
+      modal.style.display = "none";
+      iframe.src = "";
+    }, 300);
+  }
+
+  document.querySelector(".close").addEventListener("click", closeModal);
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.style.display === "flex") {
+      closeModal();
     }
+  });
 
-    function closeModal() {
-      modal.classList.remove("show");
-      modal.classList.add("hide");
-      modalContent.classList.remove("animate-in");
-      modalContent.classList.add("animate-out");
-      setTimeout(() => {
-        modal.style.display = "none";
-        iframe.src = ""; // reset iframe
-      }, 400);
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
     }
+  });
+</script>
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && modal.style.display === "flex") {
-        closeModal();
-      }
-    });
 
-    window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-  </script>
+
   
 <hr>
 <h2>➕ Additional Staking Rules</h2>
