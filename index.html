@@ -92,36 +92,49 @@
 
     .modal-content {
       background-color: #1a1a1a;
+      margin: 5% auto;
+      padding: 20px;
       border-radius: 12px;
       width: 90%;
       max-width: 500px;
       height: 600px;
       position: relative;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
       overflow: hidden;
-      padding: 0;
-      animation: none;
-
-      /* Glow border aura effect */
-      box-shadow:
-        0 0 20px #00ffff,
-        0 0 40px rgba(0, 255, 255, 0.4),
-        0 0 60px rgba(0, 255, 255, 0.2),
-        0 0 80px rgba(0, 255, 255, 0.1);
-      animation: glow 4s ease-in-out infinite alternate;
     }
-
-    @keyframes glow {
-      from {
-        box-shadow:
-          0 0 10px #00ffff,
-          0 0 20px rgba(0, 255, 255, 0.3);
+    
+        
+    /* Smoke animation container */
+    .smoke {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(0,255,255,0.3) 10%, transparent 70%) 0 0,
+                  radial-gradient(circle, rgba(0,255,255,0.15) 10%, transparent 70%) 50% 50%,
+                  radial-gradient(circle, rgba(0,255,255,0.1) 10%, transparent 70%) 100% 100%;
+      background-size: 33% 33%;
+      animation: smokeMove 8s linear infinite;
+      z-index: -1;
+      filter: blur(20px);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    
+    /* Keyframes to animate the smoke */
+    @keyframes smokeMove {
+      0% {
+        transform: translate(0%, 0%) rotate(0deg);
       }
-      to {
-        box-shadow:
-          0 0 25px #00ffff,
-          0 0 50px rgba(0, 255, 255, 0.6);
+      50% {
+        transform: translate(10%, -10%) rotate(180deg);
+      }
+      100% {
+        transform: translate(0%, 0%) rotate(360deg);
       }
     }
+    
     
     .modal-content iframe {
       width: 100%;
@@ -207,9 +220,9 @@
 
   <!-- Modal -->
   <div id="aprModal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content smoke">
       <span class="close" onclick="closeModal()">&times;</span>
-      <div class="title-logo">
+      <div class="title-logo">  
         <img src="./wstakinglogonobackground.png" alt="WStaking Logo">
         <h1>Powered by WStaking</h1>
       </div>
