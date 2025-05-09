@@ -240,39 +240,36 @@
 
 <script>
   const modal = document.getElementById("aprModal");
-  const modalContent = modal.querySelector(".modal-content");
   const iframe = document.getElementById("aprFrame");
 
-  function openAPRModal() {
+  function openModal() {
+    iframe.src = iframe.dataset.src;
+    modal.classList.add("show");
+    modal.classList.remove("hide");
     modal.style.display = "flex";
-    modal.classList.remove("fade-out");
-    modalContent.classList.remove("pop-out");
-
-    void modal.offsetWidth; // trigger reflow for restart animation
-    modal.classList.add("fade-in");
-    modalContent.classList.add("pop-in");
-
-    // reload the iframe to reset calculator state
-    iframe.src = iframe.src;
   }
 
-  function closeAPRModal() {
-    modal.classList.remove("fade-in");
-    modalContent.classList.remove("pop-in");
-    modal.classList.add("fade-out");
-    modalContent.classList.add("pop-out");
-
+  function closeModal() {
+    modal.classList.remove("show");
+    modal.classList.add("hide");
     setTimeout(() => {
       modal.style.display = "none";
+      iframe.src = "";
     }, 300);
   }
 
-  window.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") closeAPRModal();
+  document.querySelector(".close").addEventListener("click", closeModal);
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.style.display === "flex") {
+      closeModal();
+    }
   });
 
-  window.addEventListener("click", function(event) {
-    if (event.target === modal) closeAPRModal();
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
   });
 </script>
   
