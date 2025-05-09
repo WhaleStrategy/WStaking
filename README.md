@@ -7,7 +7,8 @@
 </h1>
 
 ---
-![Thumbnaill](https://github.com/user-attachments/assets/a4fb40bc-0e29-4d2d-9f28-23c6d264ab96)
+
+![Thumbnaill](https://github.com/user-attachments/assets/45638581-79b7-4ba6-a993-3628c143f59d)
 
 *Smart staking with optimized returns – built for long-term growth.* 🚀
 
@@ -102,7 +103,8 @@ When your selected staking duration ends:
 ---
 
 ### 🎉 1000 USDT Community Airdrop Event 
-![WStaking Airdrop](https://github.com/user-attachments/assets/b7133e54-5509-48bd-8026-d15d93ba38ac)
+
+![WStaking Airdrop](https://github.com/user-attachments/assets/e4b23d11-6e49-4a11-91a3-28a9f4828c7b)
 
 
 *To thank our community, WStaking recently hosted a **1000 USDT prize pool airdrop event** for active users!*  
