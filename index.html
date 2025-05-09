@@ -86,7 +86,6 @@
       backdrop-filter: blur(4px);
       justify-content: center;
       align-items: center;
-      animation: fadeIn 0.4s forwards;
     }
 
     .modal-content {
@@ -99,7 +98,6 @@
       height: 600px;
       position: relative;
       box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-      animation: popIn 0.4s forwards;
       overflow: hidden;
     }
 
@@ -147,44 +145,43 @@
       border-radius: 6px;
     }
     
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; }
+    .modal.fade-in {
+      animation: fadeIn 0.4s ease forwards;
     }
-    
-    @keyframes popOut {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(0.8); opacity: 0; }
-    }
-    
     .modal.fade-out {
       animation: fadeOut 0.4s ease forwards;
     }
-    
+    .modal-content.pop-in {
+      animation: popIn 0.4s ease forwards;
+    }
     .modal-content.pop-out {
       animation: popOut 0.4s ease forwards;
     }
-    .modal.fade-in {
-  animation: fadeIn 0.4s ease forwards;
-
+    
     @keyframes fadeIn {
-      from { opacity: 0; } to { opacity: 1; }
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
-
-      .modal-content.pop-in {
-  animation: popIn 0.4s ease forwards;
-}
-
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
     @keyframes popIn {
-      0% { transform: scale(0.8); opacity: 0; }
+      0%   { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
+    @keyframes popOut {
+      0%   { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0; }
+    }
+
     
   </style>
 </head>
 <body>
 <!-- Floating Button -->
-  <button class="popup-button" onclick="document.getElementById('aprModal').style.display='block'">APR Calculator</button>
+   <button class="popup-button" onclick="openModal()">APR Calculator</button>
+
 
   <!-- Modal -->
   <div id="aprModal" class="modal">
