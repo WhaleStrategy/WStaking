@@ -86,7 +86,7 @@
       backdrop-filter: blur(4px);
       justify-content: center;
       align-items: center;
-      animation: fadeIn 0.4s ease;
+      animation: fadeIn 0.4s forwards;
     }
 
     .modal-content {
@@ -99,7 +99,7 @@
       height: 600px;
       position: relative;
       box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-      animation: popIn 0.4s ease;
+      animation: popIn 0.4s forwards;
       overflow: hidden;
     }
 
@@ -241,41 +241,41 @@
 <script>
   const modal = document.getElementById("aprModal");
   const modalContent = modal.querySelector(".modal-content");
-  const iframe = modal.querySelector("iframe");
+  const iframe = document.getElementById("aprFrame");
 
   function openAPRModal() {
-    iframe.src = iframe.src; // Reset iframe to refresh
+    modal.style.display = "flex";
     modal.classList.remove("fade-out");
     modalContent.classList.remove("pop-out");
-    modal.style.display = "flex";
+
+    void modal.offsetWidth; // trigger reflow for restart animation
+    modal.classList.add("fade-in");
+    modalContent.classList.add("pop-in");
+
+    // reload the iframe to reset calculator state
+    iframe.src = iframe.src;
   }
 
   function closeAPRModal() {
-    // Apply fade-out and pop-out animations
+    modal.classList.remove("fade-in");
+    modalContent.classList.remove("pop-in");
     modal.classList.add("fade-out");
     modalContent.classList.add("pop-out");
 
-    // Delay hiding the modal until animation completes
     setTimeout(() => {
       modal.style.display = "none";
-    }, 400); // match your CSS animation duration
+    }, 300);
   }
 
-  // Close on ESC key
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeAPRModal();
-    }
+  window.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") closeAPRModal();
   });
 
-  // Close on clicking outside the modal
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeAPRModal();
-    }
+  window.addEventListener("click", function(event) {
+    if (event.target === modal) closeAPRModal();
   });
 </script>
-
+  
 <hr>
 <h2>➕ Additional Staking Rules</h2>
 <ul>
