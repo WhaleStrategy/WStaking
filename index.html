@@ -107,33 +107,28 @@
     /* Smoke animation container */
     .smoke {
       position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background: radial-gradient(circle, rgba(0,255,255,0.3) 10%, transparent 70%) 0 0,
+      top: -40px;
+      left: -40px;
+      width: calc(100% + 80px);
+      height: calc(100% + 80px);
+      background: radial-gradient(circle, rgba(0,255,255,0.2) 10%, transparent 70%) 0 0,
                   radial-gradient(circle, rgba(0,255,255,0.15) 10%, transparent 70%) 50% 50%,
                   radial-gradient(circle, rgba(0,255,255,0.1) 10%, transparent 70%) 100% 100%;
       background-size: 33% 33%;
-      animation: smokeMove 8s linear infinite;
+      animation: smokeFlow 12s linear infinite;
       z-index: -1;
-      filter: blur(20px);
       pointer-events: none;
       opacity: 0.6;
+      filter: blur(30px);
+      border-radius: 20px;
     }
     
-    /* Keyframes to animate the smoke */
-    @keyframes smokeMove {
-      0% {
-        transform: translate(0%, 0%) rotate(0deg);
-      }
-      50% {
-        transform: translate(10%, -10%) rotate(180deg);
-      }
-      100% {
-        transform: translate(0%, 0%) rotate(360deg);
-      }
+    @keyframes smokeFlow {
+      0% { transform: rotate(0deg) translate(0, 0); }
+      50% { transform: rotate(180deg) translate(10px, -10px); }
+      100% { transform: rotate(360deg) translate(0, 0); }
     }
+
     
     
     .modal-content iframe {
@@ -220,7 +215,8 @@
 
   <!-- Modal -->
   <div id="aprModal" class="modal">
-    <div class="modal-content smoke">
+    <div class="modal-content">
+      <div class="smoke"></div>
       <span class="close" onclick="closeModal()">&times;</span>
       <div class="title-logo">  
         <img src="./wstakinglogonobackground.png" alt="WStaking Logo">
