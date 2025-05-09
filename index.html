@@ -221,21 +221,31 @@
 </ul>
 
 <script>
-  
+  const modal = document.getElementById("aprModal");
+  const iframe = modal.querySelector("iframe");
+
   function openAPRModal() {
-    document.getElementById("aprModal").style.display = "block";
+    iframe.src = iframe.src; // refresh iframe
+    modal.style.display = "block";
   }
 
   function closeAPRModal() {
-    document.getElementById("aprModal").style.display = "none";
+    modal.style.display = "none";
   }
 
   window.onclick = function(event) {
-    const modal = document.getElementById("aprModal");
     if (event.target === modal) {
       closeAPRModal();
     }
+  };
+
+  window.onkeydown = function(event) {
+    if (event.key === "Escape") {
+      closeAPRModal();
+    }
+  };
 </script>
+
 
 
 <hr>
