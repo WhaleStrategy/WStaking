@@ -146,6 +146,24 @@
       margin-top: 15px;
       border-radius: 6px;
     }
+    
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    
+    @keyframes popOut {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.8); opacity: 0; }
+    }
+    
+    .modal.fade-out {
+      animation: fadeOut 0.4s ease forwards;
+    }
+    
+    .modal-content.pop-out {
+      animation: popOut 0.4s ease forwards;
+    }
 
     @keyframes fadeIn {
       from { opacity: 0; } to { opacity: 1; }
@@ -222,31 +240,41 @@
 
 <script>
   const modal = document.getElementById("aprModal");
+  const modalContent = modal.querySelector(".modal-content");
   const iframe = modal.querySelector("iframe");
 
   function openAPRModal() {
-    iframe.src = iframe.src; // refresh iframe
-    modal.style.display = "block";
+    iframe.src = iframe.src; // Reset iframe to refresh
+    modal.classList.remove("fade-out");
+    modalContent.classList.remove("pop-out");
+    modal.style.display = "flex";
   }
 
   function closeAPRModal() {
-    modal.style.display = "none";
+    // Apply fade-out and pop-out animations
+    modal.classList.add("fade-out");
+    modalContent.classList.add("pop-out");
+
+    // Delay hiding the modal until animation completes
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 400); // match your CSS animation duration
   }
 
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      closeAPRModal();
-    }
-  };
-
-  window.onkeydown = function(event) {
+  // Close on ESC key
+  window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeAPRModal();
     }
-  };
+  });
+
+  // Close on clicking outside the modal
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeAPRModal();
+    }
+  });
 </script>
-
-
 
 <hr>
 <h2>➕ Additional Staking Rules</h2>
