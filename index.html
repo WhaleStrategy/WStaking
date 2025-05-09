@@ -87,7 +87,6 @@
       justify-content: center;
       align-items: center;
       animation: fadeIn 0.4s forwards;
-      animation: fadeOut 0.4s forwards;
     }
 
     .modal-content {
@@ -165,10 +164,16 @@
     .modal-content.pop-out {
       animation: popOut 0.4s ease forwards;
     }
+    .modal.fade-in {
+  animation: fadeIn 0.4s ease forwards;
 
     @keyframes fadeIn {
       from { opacity: 0; } to { opacity: 1; }
     }
+
+      .modal-content.pop-in {
+  animation: popIn 0.4s ease forwards;
+}
 
     @keyframes popIn {
       0% { transform: scale(0.8); opacity: 0; }
@@ -185,7 +190,7 @@
   <div id="aprModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="document.getElementById('aprModal').style.display='none'">&times;</span>
-      <iframe src="https://whalestrategy.github.io/WStakingAPR/"></iframe>
+      <iframe id="aprFrame" data-src="https://whalestrategy.github.io/WStakingAPR/"></iframe>
     </div>
   </div>
 <div class="title-logo">
@@ -244,19 +249,28 @@
   const iframe = document.getElementById("aprFrame");
 
   function openModal() {
-    iframe.src = iframe.dataset.src;
-    modal.classList.add("show");
-    modal.classList.remove("hide");
+    modal.classList.remove("fade-out");
+    modal.querySelector(".modal-content").classList.remove("pop-out");
+
     modal.style.display = "flex";
+    void modal.offsetWidth; // restart animation
+    modal.classList.add("fade-in");
+    modal.querySelector(".modal-content").classList.add("pop-in");
+
+    iframe.src = iframe.dataset.src;
   }
 
   function closeModal() {
-    modal.classList.remove("show");
-    modal.classList.add("hide");
+    modal.classList.remove("fade-in");
+    modal.querySelector(".modal-content").classList.remove("pop-in");
+
+    modal.classList.add("fade-out");
+    modal.querySelector(".modal-content").classList.add("pop-out");
+
     setTimeout(() => {
       modal.style.display = "none";
-      iframe.src = "";
-    }, 300);
+      iframe.src = ""; // Reset iframe
+    }, 400); // match animation duration
   }
 
   document.querySelector(".close").addEventListener("click", closeModal);
@@ -273,6 +287,7 @@
     }
   });
 </script>
+
 
   
 <hr>
