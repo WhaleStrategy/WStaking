@@ -186,8 +186,8 @@
   <!-- Modal -->
   <div id="aprModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="document.getElementById('aprModal').style.display='none'">&times;</span>
-      <iframe id="aprFrame" data-src="https://whalestrategy.github.io/WStakingAPR/"></iframe>
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe id="aprFrame" src="" data-src="https://whalestrategy.github.io/WStakingAPR/" onload="onFrameLoad()"></iframe>
     </div>
   </div>
 <div class="title-logo">
@@ -240,12 +240,17 @@
   <li>📊 APR <strong>increases progressively</strong> with your stake amount</li>
   <li>🏆 Maximum APR is unlocked at <strong>10,000 USDT or more</strong></li>
 </ul>
-
 <script>
   const modal = document.getElementById("aprModal");
   const iframe = document.getElementById("aprFrame");
 
   function openModal() {
+    // Hide modal while iframe loads
+    modal.style.display = "none";
+    iframe.src = iframe.dataset.src;
+  }
+
+  function onFrameLoad() {
     modal.classList.remove("fade-out");
     modal.querySelector(".modal-content").classList.remove("pop-out");
 
@@ -253,8 +258,6 @@
     void modal.offsetWidth; // restart animation
     modal.classList.add("fade-in");
     modal.querySelector(".modal-content").classList.add("pop-in");
-
-    iframe.src = iframe.dataset.src;
   }
 
   function closeModal() {
@@ -266,25 +269,20 @@
 
     setTimeout(() => {
       modal.style.display = "none";
-      iframe.src = ""; // Reset iframe
-    }, 200); // match animation duration
+      iframe.src = ""; // reset for clean next time
+    }, 400);
   }
 
-  document.querySelector(".close").addEventListener("click", closeModal);
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.style.display === "flex") {
-      closeModal();
-    }
+  // Close on ESC
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "flex") closeModal();
   });
 
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeModal();
-    }
+  // Close on outside click
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
   });
 </script>
-
 
   
 <hr>
