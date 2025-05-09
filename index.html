@@ -187,7 +187,7 @@
   <div id="aprModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <iframe id="aprFrame" src="" data-src="https://whalestrategy.github.io/WStakingAPR/" onload="onFrameLoad()"></iframe>
+      <iframe id="aprFrame" data-src="https://whalestrategy.github.io/WStakingAPR/"></iframe>
     </div>
   </div>
 <div class="title-logo">
@@ -243,14 +243,18 @@
 <script>
   const modal = document.getElementById("aprModal");
   const iframe = document.getElementById("aprFrame");
+  let modalIsOpening = false;
 
   function openModal() {
-    // Hide modal while iframe loads
+    modalIsOpening = true;
     modal.style.display = "none";
     iframe.src = iframe.dataset.src;
   }
 
   function onFrameLoad() {
+    if (!modalIsOpening) return;
+    modalIsOpening = false;
+
     modal.classList.remove("fade-out");
     modal.querySelector(".modal-content").classList.remove("pop-out");
 
@@ -269,19 +273,26 @@
 
     setTimeout(() => {
       modal.style.display = "none";
-      iframe.src = ""; // reset for clean next time
-    }, 400);
+      iframe.src = ""; // reset iframe
+    }, 400); // must match animation time
   }
 
-  // Close on ESC
+  document.querySelector(".close").addEventListener("click", closeModal);
+
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.style.display === "flex") closeModal();
+    if (e.key === "Escape" && modal.style.display === "flex") {
+      closeModal();
+    }
   });
 
-  // Close on outside click
   window.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
+    if (e.target === modal) {
+      closeModal();
+    }
   });
+
+  // Set iframe onload callback
+  iframe.onload = onFrameLoad;
 </script>
 
   
