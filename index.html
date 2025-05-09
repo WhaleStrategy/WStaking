@@ -86,14 +86,7 @@
       backdrop-filter: blur(4px);
       justify-content: center;
       align-items: center;
-    }
-
-    .modal.show {
-      display: flex;
-      animation: fadeIn 0.4s ease forwards;
-    }
-    .modal.hide {
-      animation: fadeOut 0.4s ease forwards;
+      animation: fadeIn 0.4s forwards;
     }
 
     .modal-content {
@@ -106,13 +99,8 @@
       height: 600px;
       position: relative;
       box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
-    }
-
-     .modal-content.animate-in {
-      animation: popIn 0.4s ease forwards;
-    }
-    .modal-content.animate-out {
-      animation: popOut 0.4s ease forwards;
+      animation: popIn 0.4s forwards;
+      overflow: hidden;
     }
 
     .modal-content iframe {
