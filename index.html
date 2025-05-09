@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WStaking – Intelligent Crypto Staking</title>
   <link rel="icon" href="wstakinglogonobackground.png">
+  <!-- Animate.css CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -90,32 +92,37 @@
 
     .modal-content {
       background-color: #1a1a1a;
-      margin: 5% auto;
-      padding: 20px;
       border-radius: 12px;
       width: 90%;
       max-width: 500px;
       height: 600px;
       position: relative;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
       overflow: hidden;
-      animation: glowPulse 2.5s infinite alternate;
+      padding: 0;
+      animation: none;
+
+      /* Glow border aura effect */
+      box-shadow:
+        0 0 20px #00ffff,
+        0 0 40px rgba(0, 255, 255, 0.4),
+        0 0 60px rgba(0, 255, 255, 0.2),
+        0 0 80px rgba(0, 255, 255, 0.1);
+      animation: glow 4s ease-in-out infinite alternate;
     }
-    /* Glowing edge animation */
-    @keyframes glowPulse {
-      0% {
+
+    @keyframes glow {
+      from {
         box-shadow:
-          0 0 5px #00ffff,
           0 0 10px #00ffff,
-          0 0 15px #00ffff;
+          0 0 20px rgba(0, 255, 255, 0.3);
       }
-      100% {
+      to {
         box-shadow:
-          0 0 20px #00ffff,
-          0 0 40px #00ffff,
-          0 0 60px #00ffff;
+          0 0 25px #00ffff,
+          0 0 50px rgba(0, 255, 255, 0.6);
       }
     }
+    
     .modal-content iframe {
       width: 100%;
       height: 550px;
