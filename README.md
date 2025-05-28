@@ -1,5 +1,5 @@
 <p align="left"> 
-  <img src="./newlogo0526_0a0a0a.jpg" alt="WStaking Logo" width="100" align="left" style="margin-right: 10px;"/>
+  <img src="./pnglogo.png" alt="WStaking Logo" width="100" align="left" style="margin-right: 10px;"/>
 </p>
 
 <h1 style="margin-left: 75px; margin-bottom: 50px;">
