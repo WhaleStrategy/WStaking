@@ -1,0 +1,4 @@
+{
+  "jwt_secret": "super-secret-production-key-123",
+  "db_password": "ProdPassword!123"
+}
